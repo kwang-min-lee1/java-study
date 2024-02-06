@@ -8,9 +8,8 @@ public class Statement {
         x = 1; // x에 1을 저장해라.
         int y = 2; //y를 선언하고 2를 저장해라
         int result = x + y; // result를 선언하고 x 와 y를 더해서 저장해라
-        System.out.println((result); //츨력해라
+        System.out.println(result); //츨력해라
 
 
     }
 }
-in
