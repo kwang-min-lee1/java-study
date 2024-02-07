@@ -23,6 +23,5 @@ public class Ex5 {
         System.out.printf("나이: %d\n" , age );
         System.out.printf("전화: %s-%s-%s\n", tel1 , tel2 ,tel3);
 
-
     }
 }
