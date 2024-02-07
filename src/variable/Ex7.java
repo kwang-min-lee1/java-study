@@ -26,5 +26,6 @@ public class Ex7 {
         System.out.println("이름:" + name);
         System.out.println("주민번호 앞자리:" + residentNumber);
         System.out.println("전화번호:" + phoneNumber);
+
     }
 }
