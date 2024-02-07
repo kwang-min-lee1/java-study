@@ -16,5 +16,6 @@ public class Type7 {
         String s2 = String.valueOf(3.14);
         String s3 = String.valueOf(false);
 
+
     }
 }
