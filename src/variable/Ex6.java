@@ -14,4 +14,5 @@ public class Ex6 {
     int num4 = 10;
     double num5 = 5.5;
     int result3 =  num4 + (int) num5;
+
 }
