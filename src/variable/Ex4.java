@@ -7,13 +7,13 @@ public class Ex4 {
         char letter ='A';
         boolean isTrue = true;
 
-        int number_1 = 5;
-        System.out.println(number_1);
-        double decimal_1 = 2.71828;
-        System.out.println(decimal_1);
-        char letter_1 ='B';
-        System.out.println(letter_1);
-        boolean isTrue_1 = false;
-        System.out.println(isTrue_1);
+        number = 5;
+        System.out.println(number);
+        decimal = 2.71828;
+        System.out.println(decimal);
+        letter ='B';
+        System.out.println(letter);
+        isTrue = false;
+        System.out.println(isTrue);
     }
 }
