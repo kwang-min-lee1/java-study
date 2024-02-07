@@ -10,5 +10,6 @@ public class Type6 {
         System.out.println("3"+7); //"37"
         System.out.println(3+"7"); //"37"
 
+
     }
 }
