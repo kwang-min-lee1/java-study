@@ -1,5 +1,7 @@
 package method;
 
+import java.util.Scanner;
+
 public class Ex7Ref {
     public static void main(String[] args) {
         /*
@@ -30,7 +32,8 @@ public class Ex7Ref {
         boolean wordCompleted = false;
 
 
-        while (tries < MAX_TRIES) {
+        // 최대시도 횟수를 넘어서거나, 단어가 완성되면 종료
+        while (tries < MAX_TRIES && !wordCompleted) {
             System.out.print("단어 추측: ");
             printDisplayArray(displayArray); // 현재까지 맞춘 단어의 상태 출력하는 메서드
             String guess = scanner.nextLine();  // 사용자로부터 글자 추측 받기
@@ -80,7 +83,7 @@ public class Ex7Ref {
 
     // 단어가 모두 맞춰졌는지 확인하는 메서드
     private static boolean isWordCompleted(char[] displayArray) {
-        for (char  : displayArray) {
+        for (char c : displayArray) {
             if (c == '_') {
                 return false;
             }
