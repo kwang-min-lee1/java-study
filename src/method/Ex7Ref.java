@@ -80,7 +80,7 @@ public class Ex7Ref {
 
     // 단어가 모두 맞춰졌는지 확인하는 메서드
     private static boolean isWordCompleted(char[] displayArray) {
-        for (char c : displayArray) {
+        for (char  : displayArray) {
             if (c == '_') {
                 return false;
             }
