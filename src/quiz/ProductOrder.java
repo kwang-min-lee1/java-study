@@ -7,5 +7,12 @@ public class ProductOrder {
     int price; // 상품 가격
 
     int quantity; // 상품 갯수
+
+
+    ProductOrder(String productName, int price, int quantity) {
+        this.productName = productName;
+        this.price = price;
+        this.quantity = quantity;
+    }
 }
 
