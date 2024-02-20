@@ -25,9 +25,11 @@ public class Book {
         this.isAvailable = isAvailable;
     }
 
+
     public Book(String title, String author) {
-        this.title = title;
-        this.author = author;
+        this(title, author, "입력요함", true);
+//        this.title = title;
+//        this.author = author;
     }
 
 
@@ -36,12 +38,20 @@ public class Book {
     //            returnBook(): 도서를 반납하고 isAvailable을 true로 변경합니다.
     //            printInfo(): 현재 도서의 상태정보를 출력하는 메서드를 만들어보세요.
     void borrowBook() {
-
+        // 대여를 진행
+        if (isAvailable == true) {
+            isAvailable = false; // 빌렸음
+            System.out.println("도서를 대여하였습니다.");
+        } else { // 이미 대여중인 경우
+            System.out.println("도서를 대여할 수 없습니다. 대여중입니다.");
+        }
     }
     void returnBook() {
-
+        isAvailable = true;
+        System.out.println("도서를 반납하였습니다.");
     }
     void printInfo() {
+        System.out.println("책 : " + title + "저자 : " +  author + "ISBN : " + isbn  + "대여가능여부 : " + isAvailable );
 
     }
 }
