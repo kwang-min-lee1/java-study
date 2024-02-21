@@ -1,4 +1,4 @@
-package access_modifier.ex.libary.management;
+package access_modifier.ex.com.libary.management;
 
 public class Book {
     //    Step 1: Book 클래스 정의

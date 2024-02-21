@@ -1,4 +1,4 @@
-package access_modifier.ex.bank.system;
+package access_modifier.ex.com.bank.system;
 
 public class Account {
     //    필드:
