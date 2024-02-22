@@ -1,5 +1,7 @@
 package static0.ex;
 
+import static static0.ex.MathUtility.*;
+
 public class Ex2 {
  /*
     MathUtility 클래스:
