@@ -18,4 +18,11 @@ Car의 move() 메서드는 "자동차가 도로를 달립니다."를 출력합�
 Bicycle의 move() 메서드는 "자전거가 길을 따라 pedaling합니다."를 출력합니다.
 Train의 move() 메서드는 "기차가 철로를 따라 질주합니다."를 출력합니다.
      */
+    public static void main(String[] args) {
+        Transport[] transports = {new Car(), new Bicycle(), new Train()};
+
+        for (Transport transport : transports) {
+            transport.move();
+        }
+    }
 }
