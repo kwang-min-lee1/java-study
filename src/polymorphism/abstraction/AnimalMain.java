@@ -1,9 +1,6 @@
 package polymorphism.abstraction;
 
-import access_modifier.first.A;
-import access_modifier.second.C;
-
-public class AnimalMain3 {
+public class AnimalMain {
     public static void main(String[] args) {
         // 추상 클래스는 인스턴스화가 될  수 없다 => 생성 제약
         //1. 추상적인 상위 메서드 생성 문제 해결
