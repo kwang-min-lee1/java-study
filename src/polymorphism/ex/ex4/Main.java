@@ -31,6 +31,22 @@ ChocoCookie의 specialSkill() 메서드는 "초코 쿠키가 초콜릿 폭발을
 초코 쿠키가 초콜릿 폭발을 일으킵니다!
 ===
      */
+    public static void main(String[] args) {
+        Cookie gingerBread = new GingerBread();
+        Cookie chocoCookie = new ChocoCookie();
+        Cookie strawberryCookie = new StrawberryCookie();
 
+        Cookie[] cookies = {gingerBread, chocoCookie, strawberryCookie};
+
+        for (Cookie cookie : cookies) {
+            cookie.run();
+            cookie.jump();
+            // instanceof 연산자를 통한 타입 체크
+            if (cookie instanceof GingerBread) {
+            } else {
+                cookie.specialSkill();
+            }
+        }
+    }
 
 }

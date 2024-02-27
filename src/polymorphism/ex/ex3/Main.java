@@ -17,4 +17,14 @@ Circle의 area() 메서드는 "원의 면적: [결과값]"를 출력합니다.
 Rectangle의 area() 메서드는 "사각형의 면적: [결과값]"를 출력합니다.
 Triangle의 area() 메서드는 "삼각형의 면적: [결과값]"를 출력합니다.
      */
+    public static void main(String[] args) {
+        Shape circle = new Circle(10);
+        Shape rectangle = new Rectangle(20, 30);
+        Shape triangle = new Triangle(20, 30);
+
+        System.out.println("원의 면적 : " + circle.area());
+        System.out.println("사각형의 면적 : " + rectangle.area());
+        System.out.println("삼각형의 면적 : " + triangle.area());
+
+    }
 }
