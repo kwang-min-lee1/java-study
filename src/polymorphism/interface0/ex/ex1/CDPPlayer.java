@@ -1,5 +1,7 @@
 package polymorphism.interface0.ex.ex1;
 
+
+ // 구현
 public class CDPPlayer implements Playable{
     @Override
     public void play() {

@@ -23,13 +23,5 @@ public class Ex2 {
     모바일 결제로 15000원 결제되었습니다.
 
      */
-     public static void main(String[] args) {
-         MobilePay mobilePay = new MobilePay();
-         CreaditCard creaditCard = new CreaditCard();
-         BankTransfer bankTransfer = new BankTransfer();
 
-         mobilePay.pay();
-         creaditCard.pay();
-         bankTransfer.pay();
-     }
 }

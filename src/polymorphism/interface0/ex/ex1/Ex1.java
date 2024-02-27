@@ -26,17 +26,5 @@ public class Ex1 {
     CD 재생 중지!
 
      */
-     public static void main(String[] args) {
-         MP3Player mp3Player = new MP3Player();
-         CDPPlayer cdpPlayer = new CDPPlayer();
 
-         mp3Player.play();
-         mp3Player.pause();
-         mp3Player.stop();
-
-         cdpPlayer.play();
-         cdpPlayer.pause();
-         cdpPlayer.stop();
-
-     }
 }

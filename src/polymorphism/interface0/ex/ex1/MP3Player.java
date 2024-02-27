@@ -1,5 +1,6 @@
 package polymorphism.interface0.ex.ex1;
 
+// 구현
 public class MP3Player implements Playable{
     @Override
     public void play() {
