@@ -34,4 +34,13 @@ Hint
 Item 클래스의 필드 String name, int price, int quantity
 ShoppingCart 클래스의 필드 Item[] items, int itemCount
 */
+     public static void main(String[] args) {
+         ShoppingCart cart = new ShoppingCart();
+         Item item1 = new Item("당근", 1500, 3);
+         Item item2 = new Item("양파", 2000, 5);
+         cart.addItem(item1);
+         cart.addItem(item2);
+         cart.displayItems();
+     }
+    // cart.count = 8; private으로 데이터 접근을 막는다.
 }

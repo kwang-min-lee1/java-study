@@ -27,4 +27,12 @@ counter.increment();
 2
 최대값을 초과할 수 없습니다.
 */
+    public static void main(String[] args) {
+        MaxCounter counter = new MaxCounter(2);
+        counter.increment();
+        counter.increment();
+        counter.increment();
+//        counter.count = 10;   접근 불가하게 private으로 제어
+//        counter.max = 20;
+    }
 }
