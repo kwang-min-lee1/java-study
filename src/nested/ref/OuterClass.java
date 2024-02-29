@@ -14,7 +14,7 @@ public class OuterClass {
     }
 
     // 안쪽 중첩 클래스
-    Class InnerClass {
+    class InnerClass {
         String innerField = "안쪽 필드";
         String field = "안쪽 필드";
 
@@ -34,7 +34,7 @@ public class OuterClass {
             System.out.println(innerField); // 이름이 다를 때는 this 키워드 없이 호출 가능
             method();
             this.method();
-            innerMethod;
+            innerMethod();
 
             // 2. 안쪽에서 바깥쪽을 참조
             System.out.println("=== 2. 안쪽에서 바깥쪽 필드와 메서드 호출 ===");
