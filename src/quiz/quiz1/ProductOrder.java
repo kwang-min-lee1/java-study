@@ -1,4 +1,4 @@
-package quiz;
+package quiz.quiz1;
 
 public class ProductOrder {
 
