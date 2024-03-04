@@ -30,7 +30,7 @@ public class Try10 {
         // 블록 변수 범위로 인해 외부에 변수 선언
         FileInputStream fileInputStream =null;
         try {
-            // 파일 리소스 다름
+            // 파일 리소스 다룸
             fileInputStream = new FileInputStream("file.txt");
         } catch (FileNotFoundException e) {
             // 예외처리
