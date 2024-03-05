@@ -8,8 +8,8 @@ public class Person {
     // age 만 사용하는 경우, name, age 필드 모두 사용하는 경우
 
 
-    private String name;
-    public int age;
+    String name;
+    int age;
 
     public Person(String name, int age) {
         this.name = name;
@@ -27,19 +27,17 @@ public class Person {
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + Integer.hashCode(age);
-        return result;
+        return Objects.hash(name,age);
     }
 
     public static void main(String[] args) {
 
-        Person person1 = new Person("Jone Doe", 30);
-        Person person2 = new Person("Jone Doe", 30);
+        Person person1 = new Person("John Doe", 30);
+        Person person2 = new Person("John Doe", 30);
 
-        System.out.println(person1.hashCode());
-        System.out.println(person2.hashCode());
-        System.out.println(person1.equals(person2));
+        System.out.println(person1.hashCode()); // 318734572
+        System.out.println(person2.hashCode());  // 123456789
+        System.out.println(person1.equals(person2)); // false
     }
 
 
