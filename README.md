@@ -446,9 +446,10 @@
         1. Checked Exception: 컴파일 시점에 체크되는 예외.
         2. Unchecked Exception: 실행시점(Runtime)에 발생하는 예외
             - 주로 RuntimeException 클래스에서 상속받음.
-  3. 
-  
 
+
+### 깊은 복사   (2024.03.05)
+![img.png](img.png)
  
   
 
