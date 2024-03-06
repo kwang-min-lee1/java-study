@@ -10,4 +10,13 @@ public class Ex8 {
 인자가 하나 이상 있으면 상태 코드 1을 반환하고 프로그램을 종료합니다.
 System.exit(int status) 메소드를 사용하여 상태 코드를 설정하세요.
      */
+     public static void main(String[] args) {
+         if (args.length == 0) {
+             System.out.println("인자가 없이 정상 종료");
+             System.exit(0);
+         } else {
+             System.out.println("인자를 받아 비정상 종료");
+             System.exit(1);
+         }
+     }
 }

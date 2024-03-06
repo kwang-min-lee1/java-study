@@ -32,7 +32,7 @@ public class ClassClass {
         // 클래스에 선언된 모든 메서드를 배열로 리턴
         Method[] declaredMethods = stringClass.getDeclaredMethods();
 
-        // 해당 클래스의 모든 메서드 시그니처 확인
+        // 해당 클래스의 모든 메서드 시그니처 확인  (->  단축기: iter)
         for (Method declaredMethod : declaredMethods) {
             System.out.println(declaredMethod);
         }
@@ -40,7 +40,7 @@ public class ClassClass {
         // 클래스의 모든 필드 반환
         Field[] fields = stringClass.getDeclaredFields();
 
-        // 필드 정보 확인
+        // 필드 정보 확인   (->  단축기: iter)
         for (Field field : fields) {
             System.out.println(field);
         }
