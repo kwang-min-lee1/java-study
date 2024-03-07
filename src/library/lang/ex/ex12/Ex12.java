@@ -40,15 +40,17 @@ public class Ex12 {
 
          char genderNumber = residentNumber.charAt(7);
 
-         // String gender = genderNumber == '1' || genderNumber == '3' ? "남성" : "여성";
 
-         String gender = genderNumber
 
+         String gender;
          if (genderNumber == '1'|| genderNumber == '3') {
              gender = "남성";
          }  else {
              gender = "여성";
          }
+
+        // 위 코딩을 한줄로 표현
+        // String gender = genderNumber == '1' || genderNumber == '3' ? "남성" : "여성";
 
          if (genderNumber == '1' || genderNumber == '2') {
              year = "19" + year;
