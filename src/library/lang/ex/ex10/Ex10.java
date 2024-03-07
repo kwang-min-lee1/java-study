@@ -36,33 +36,63 @@ public class Ex10 {
 이름에 "김"이 포함된 사용자 수: 2
      */
     public static void main(String[] args) {
+
+        // 데이터
         String data = "김철수,30,kimcs@gmail.com;이영희,25,younghee@naver.com;박보검,22,bogum@daum.net;김민아,35,mina@gmail.com";
-        String[] user = data.split(";");
 
-        // 전체 사용자 수
-        int totalUsers = user.length;
+        // 데이터를 ";" 단위로 분류
+        String[] users = data.split(";");
 
-        // 각 사용자의 이름, 나이, 이메일 정보
-        String[][] userInfo = new String[totalUsers][3];
+        // gmailUser 라는 이름의 StringBuilder 객체를 생성하고 초기화.
+        // gmailUser 객체는 append(), .insert(), .delete(), .replace() 등의 메소드를 호출하여,
+        // 문자열을 추가, 삽입, 삭제, 또는 교체할 수 있다.
+        StringBuilder gmailUser = new StringBuilder();
 
-        // "gmail.com" 도메인 사용자
-        String gmailUser = "";
+        // maxAge 변수 선언하고 0으로 초기화
+        int maxAge = 0;
 
-        // 가장 나이가 많은 사용자
-        String oldestUserName = "";
-        int oldestUserAge = 0;
+        String oldestUser = null;
 
-        // 이름에 "김"이 포함된 사용자 수
-        int Kimcount = 0;
+        int countKim = 0;
 
-        for (int i =0; i < totalUsers; i++) {
-            userInfo[i] = user[i].split(",");
-            int age =Integer.parseInt(userInfo[i][1]);
-            String email = userInfo[i][2];
+        // 1. 전체 사용자 수
+        System.out.println("전체 사용자 수: " + users.length);
 
-            if (e)
+        // 2. 사용자 정보 출력
+        for (String user :users) {
+            String[] userInfo = user.split(",");
+            String name = userInfo[0];
+            String age = userInfo[1];
+            String email = userInfo[2];
+            System.out.println("이름: " + name + ", 나이: "+ age + ", 이메일: "+ email);
+
+
+            // 3. gmail 사용자
+            if (email.endsWith("gmail.com")) {
+                gmailUser.append("\n - " + name);
+            }
+
+
+            // 4. 나이가 많은 사용자
+            int intAge = Integer.parseInt(age);
+
+            if (intAge > maxAge) {
+                maxAge = intAge;
+                oldestUser = name;
+            }
+
+
+            // 5. 김씨 성 수 세기
+            if (name.startsWith("김")) {
+                countKim++;
+            }
 
         }
+
+        // 출력
+        System.out.println("Gmail 사용자: " + gmailUser);
+        System.out.println("가장 나이가 많은 사용자 : " + oldestUser + "," + maxAge);
+        System.out.println("김씨가 포함된 사용자 수: " + countKim);
 
     }
 }
