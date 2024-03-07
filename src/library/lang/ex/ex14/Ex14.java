@@ -15,4 +15,13 @@ averageDiscoveryYear 변수를 사용하여 평균적으로 몇 년에 한 번�
 출력 예시:
 탐험가 김우주는 총 7개의 행성을 발견했으며, 평균 2.5년에 한 번씩 새로운 행성을 발견했습니다.
      */
+    public static void main(String[] args) {
+        // 우주 탐험가
+        String explorerName = "김우주";
+        int planetsDiscovered = 7;
+        double averageDiscoveryYear = 2.5;
+        // 형식지정자에 맞춰서 포매팅하기
+        String explorerMsg = String.format("탐험가 %s는 총 %d개의 행성을 발견했으며, 평균 %.1f년에 한 번씩 새로운 행성을 발견했습니다.", explorerName, planetsDiscovered, averageDiscoveryYear);
+        System.out.println(explorerMsg);
+    }
 }

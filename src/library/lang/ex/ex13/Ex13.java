@@ -18,4 +18,17 @@ Apple :  1,000원
 Banana:    500원
 Cherry:  2,000원
      */
+    public static void main(String[] args) {
+
+        System.out.println("과일 가격표");
+
+        String[] fruits = {"Apple", "Banana", "Cherry"};
+        int[] prices = {1000,500,2000};
+
+        for (int i = 0; i < fruits.length; i++) {
+            System.out.printf("%-7s : %,8d원\n", fruits[i], prices[i]);
+        }
+
+
+    }
 }
