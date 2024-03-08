@@ -1,6 +1,7 @@
 package library.lang.util.ex;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 public class Ex3 {
@@ -22,20 +23,29 @@ public class Ex3 {
 최종 금액: 1628.89
      */
     public static void main(String[] args) {
+
         Scanner scanner =new Scanner(System.in);
 
         System.out.println("원금을 입력하세요: ");
-        int principle = scanner.nextInt();
-        System.out.println("연이율을 입력하세요: ");
-        int annualInterestRate = scanner.nextInt();
-        System.out.println("기간을 입력하세요: ");
+        BigDecimal principle = scanner.nextBigDecimal();
+
+        System.out.println("연이율을 입력하세요: (예:0.05) ");
+        BigDecimal annualInterestRate = scanner.nextBigDecimal();
+
+        System.out.println("기간(년)을 입력하세요: ");
         int termInYears = scanner.nextInt();
 
-        BigDecimal bigPri = new BigDecimal("principle");
-        BigDecimal bigRate = new BigDecimal("annualInterestRate");
-        BigDecimal bigYears = new BigDecimal("termInYears");
+        // 최종 금액 = 원금 * (1 + 연이율)^기간
+        // int i = principle * (1 + annualInterestRate)^termInYears;
+        BigDecimal finalAmount = principle
+                .multiply(BigDecimal.ONE
+                        .add(annualInterestRate)
+                        .pow(termInYears));
 
-        System.out.println("최종 금액: " + bigPri * (1 + bigRate) ^bigYears);
+        // 최종 금액 출력
+        System.out.printf("최종 금액: %,.2f원" , finalAmount );
+
+
 
 
     }
