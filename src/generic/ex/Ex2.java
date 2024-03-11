@@ -41,14 +41,11 @@ public class Ex2 {
         int intIndex = findIndex(intArray, 3);
         System.out.println("intArray 에서 3의 인덱스: " + intIndex);
 
-        // 제네릭 메서드인 findIndex를 정의합니다.
-        // 이 메서드는 배열과 찾고자 하는 요소를 매개변수로 받습니다.
-        // 제네릭 타입 T는 어떤 타입의 배열에도 작동할 수 있도록 합니다.
-        // 메서드의 반환 타입은 int입니다.
+        // findIndex 메서드를 호출하여 문자열 배열에서 "generic"의 인덱스를 찾습니다.
+        // 그리고 결과를 stringIndex 변수에 저장하고 출력합니다.
         int stringIndex = findIndex(stringArray, "generic");
         System.out.println("stringArray 에서 generic 의 인덱스: " + stringIndex);
     }
-
     // 제네릭 메서드인 findIndex 를 정의.
     // 이 메서드는 배열과 찾고자 하는 요소를 매개변수로 받습니다.
     // 제네릭 타입 T는 어떤 타입의 배열에도 작동할 수 있도록 합니다. 메서드의 반환 타입은 int
