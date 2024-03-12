@@ -1,6 +1,5 @@
 package generic.ex.ex5;
 
-import generic.ex.ex4.Media;
 
 /*
 다양한 미디어 타입 클래스 구현:
@@ -11,8 +10,8 @@ Media 인터페이스를 구현하는 Book, Movie, Music 클래스를 각각 정
 public class Movie implements Media {
 
     // 속성 (title, director)
-    private String title;
-    private String director;
+    String title;
+    String director;
 
 
     // 생성자를 통해 초기화
@@ -27,7 +26,10 @@ public class Movie implements Media {
     {
         return title;
     }
-    public String getDirector() {
-        return director;
+
+    @Override
+    public String getDetails() {
+        return "Direct: " + director;
     }
+
 }

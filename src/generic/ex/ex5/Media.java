@@ -9,4 +9,7 @@ Media 인터페이스를 정의하고, 모든 미디어 항목이 가져야 하�
 public interface Media {
     String getTitle();
 
+    // 객체 지향적 방법
+    String getDetails();
+
 }

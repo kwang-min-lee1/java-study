@@ -7,8 +7,8 @@ Media 인터페이스를 구현하는 Book, Movie, Music 클래스를 각각 정
  */
 
 public class Music implements Media{
-    private String title;
-    private String artist;
+    String title;
+    String artist;
 
     public Music(String title, String artist) {
         this.title = title;
@@ -19,4 +19,6 @@ public class Music implements Media{
     public String getTitle() {
         return title;
     }
+
+
 }
