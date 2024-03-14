@@ -5,8 +5,9 @@ import java.util.TreeSet;
 public class Compare {
     // Comparable 인터페이스
     // java.lang 패키지
-    // comparable  을 구현하는 클래스의 객체들은 자연스러운 순서로 정렬될 수 있음.
+    // comparable 을 구현하는 클래스의 객체들은, 자연스러운 순서로 정렬될 수 있음.
     // 단 하나의 추상 메서드
+
     // compareTo (다른 객체)
     // 반환값 (정수)
     // 음수: 이 객체가 저 객체보다 작다
@@ -14,9 +15,12 @@ public class Compare {
     // 양수: 이 객체가 저 객체보다 크다.
 
     static class Person implements Comparable<Person>{
+
+        // 필드
         String name;
         int age;
 
+        // 생성자
         public Person(String name, int age) {
             this.name = name;
             this.age = age;
@@ -24,7 +28,7 @@ public class Compare {
 
         @Override
         public int compareTo(Person otherPerson) {
-            // 나이에 따라서 정렬하고 싶음. (양수(쿰), 0(같음), 음수(작음))
+            // 나이에 따라서 정렬하고 싶음. (양수(큼), 0(같음), 음수(작음))
             return this.age - otherPerson.age;
         }
 

@@ -42,10 +42,10 @@ TreeSet에 저장된 모든 예약을 시작 시간 순으로 출력합니다.
     public static void main(String[] args) {
         TreeSet<Reservation> reservationTreeSet = new TreeSet<>();
 
-        String str1 ="2023넌 10월 10일 12시 00분 시작";
-        String str2 ="2023넌 10월 10일 10시 00분 시작";
-        String str3 ="2023넌 10월 11일 10시 00분 시작";
-        String str4 ="2023넌 10월 10일 15시 00분 시작";
+        String str1 ="2023년 10월 10일 12시 00분 시작";
+        String str2 ="2023년 10월 10일 10시 00분 시작";
+        String str3 ="2023년 10월 11일 10시 00분 시작";
+        String str4 ="2023년 10월 10일 15시 00분 시작";
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 시작");
 
@@ -55,17 +55,17 @@ TreeSet에 저장된 모든 예약을 시작 시간 순으로 출력합니다.
         LocalDateTime dt4 = LocalDateTime.parse(str4, formatter);
 
         reservationTreeSet.add(new Reservation(
-                LocalDateTime.of(2024, 03, 13, 11, 00),
+                dt1,
                 "홍길동",
                 "회의실"
         ));
         reservationTreeSet.add(new Reservation(
-                LocalDateTime.of(2024, 03, 13, 9, 00),
+                dt2,
                 "홍길서",
                 "회의실"
         ));
         reservationTreeSet.add(new Reservation(
-                LocalDateTime.of(2024, 03, 12, 23, 00),
+                dt3,
                 "홍길서",
                 "회의실"
         ));

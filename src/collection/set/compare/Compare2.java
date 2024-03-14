@@ -6,9 +6,12 @@ import java.util.TreeSet;
 public class Compare2 {
     // Comparator 인터페이스
     static class Person {
+
+        // 필드
         String name;
         int age;
 
+        // 생성자
         public Person(String name, int age) {
             this.name = name;
             this.age = age;
@@ -21,6 +24,7 @@ public class Compare2 {
     }
 
     public static void main(String[] args) {
+
         // 비교자 Comparator 정의: 익명 객체로 인터페이스 본문 선언
         Comparator<Person> nameComparator = new Comparator<>() {
             @Override
