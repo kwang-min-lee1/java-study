@@ -1,6 +1,7 @@
 package collection.set.ex;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.TreeSet;
 
 public class Ex6 {
@@ -40,6 +41,18 @@ TreeSet에 저장된 모든 예약을 시작 시간 순으로 출력합니다.
  */
     public static void main(String[] args) {
         TreeSet<Reservation> reservationTreeSet = new TreeSet<>();
+
+        String str1 ="2023넌 10월 10일 12시 00분 시작";
+        String str2 ="2023넌 10월 10일 10시 00분 시작";
+        String str3 ="2023넌 10월 11일 10시 00분 시작";
+        String str4 ="2023넌 10월 10일 15시 00분 시작";
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 HH시 mm분 시작");
+
+        LocalDateTime dt1 = LocalDateTime.parse(str1, formatter);
+        LocalDateTime dt2 = LocalDateTime.parse(str2, formatter);
+        LocalDateTime dt3 = LocalDateTime.parse(str3, formatter);
+        LocalDateTime dt4 = LocalDateTime.parse(str4, formatter);
 
         reservationTreeSet.add(new Reservation(
                 LocalDateTime.of(2024, 03, 13, 11, 00),
