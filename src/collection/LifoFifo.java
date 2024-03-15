@@ -107,7 +107,7 @@ public class LifoFifo {
         // 뒤 쪽에서 요소 제거 (LIFO)
         deque.removeLast();
         deque.pollLast();
-        deque.pop();
+        // deque.pop();
 
         System.out.println("deque = " + deque);
 
