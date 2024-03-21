@@ -107,29 +107,21 @@ public class Ex14 {
         );
 
         // 1.  모든 책의 평균 페이지 수를 계산하세요.
-        q1(books);
+
 
 
         // - 장르가 "소설"인 책들만 추려서, 이들의 평균 출판년도를 계산하세요.
-        q2(books);
+
 
         // - 2010년 이후에 출판된 책들 중 페이지 수가 300페이지 이상인 책의 제목들을 출력하세요.
-        List<String> titleList = books.stream()
-                .filter(book -> book.publishYear > year && book.pages >= page)
-                .map(Book::title)
-                .collect(Collectors.toList());
 
-        System.out.printf("%d년 이후에 출판된 책들 중 페이지 수가 %d페이지 이상인 책의 제목 = %s\n", year, page, titleList);
 
         // - 각 장르별로 책이 몇 권씩 있는지 계산하세요.
         // genreCounts 맵을 생성, 맵은 각 장르별로 책의 개수를 담는다.
         // books 리스트를 스트림으로 변환
         // Collectors.groupingBy()를 사용하여 장르별로 그룹화
         // 각 그룹의 개수를 세는 Collectors.counting()을 적용
-        Map<String, Long> genrecount = books.stream()
-                .collect(Collectors.groupingBy(Book::genre, Collectors.counting()));
 
-        System.out.println("각 장르별로 책이 몇 권씩 있는지: " + genrecount);
 
         // - 가장 많은 책이 출판된 장르를 찾으세요.
         // entrySet() 메서드를 호출하여 맵의 엔트리들을 스트림으로 변환하고,
@@ -137,12 +129,8 @@ public class Ex14 {
         // 여기서 Map.Entry.comparingByValue()를 사용하여 값에 따라 엔트리들을 비교합니다.
         // 만약 최댓값을 가진 엔트리가 존재하면, 해당 엔트리의 키(장르)를 반환합니다.
         // 그렇지 않으면 "장르 정보 없음"을 반환합니다.
-        String maxPublishGenre = genrecount.entrySet().stream()
-                .max(Comparator.comparing(Map.Entry::getValue))
-                .map(Map.Entry::getKey)
-                .orElse("장르 정보 없음");
 
-        System.out.println("가장 많은 책이 출판된 장르: " + maxPublishGenre);
+
 
         while (true){
             System.out.print("""
@@ -199,6 +187,43 @@ public class Ex14 {
         }
 
 
+    }
+
+    private static void q6(List<Book> books, String query) {
+        List<Book> list = books.stream().
+                filter(book -> book.title.contains(query)       // 책의 이름과 저자로 검색
+                        || book.author.contains(query))
+                .toList();
+        list.forEach(System.out::println);      // 검색된 책의 목록 출력
+    }
+
+    private static void q5(List<Book> books) {
+        Map<String, Long> genreBookMap = books.stream()
+                .collect(Collectors.groupingBy(Book::genre,
+                        Collectors.counting()));
+        String maxGenre = genreBookMap.entrySet().stream()
+                .max(Comparator.comparing(Map.Entry::getValue))
+                .map(Map.Entry::getKey)
+                .orElse("잘못된 장르");
+        System.out.println("가장 많은 책이 출판된 장르 = " + maxGenre);
+    }
+
+
+    private static Map<String, Long> q4(List<Book> books) {
+        Map<String, Long> genrecount = books.stream()
+                .collect(Collectors.groupingBy(Book::genre, Collectors.counting()));
+
+        System.out.println("각 장르별로 책이 몇 권씩 있는지: " + genrecount);
+        return genrecount;
+    }
+
+    private static void q3(List<Book> books, int year, int page) {
+        List<String> titleList = books.stream()
+                .filter(book -> book.publishYear > year && book.pages >= page)
+                .map(Book::title)
+                .collect(Collectors.toList());
+
+        System.out.printf("%d년 이후에 출판된 책들 중 페이지 수가 %d페이지 이상인 책의 제목 = %s\n", year, page, titleList);
     }
 
     private static void q2(List<Book> books, String genre) {
