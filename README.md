@@ -616,7 +616,7 @@
 3. Waiting: 다른 스레드의 작업이 완료되기를 기다리는 상태
 4. timed Waiting: 지정된 시간만큼 대기하는 상태 sleep
 5. Blocked: Lock 을 보유한 스레드가 있어서 실행이 불가한 상태
-6. Terminated: 스레드 작업 완료되었거나 예외 발생으로 종료가 된 상태
+6. Terminated: 스레드 작업 완료되었거나, 예외 발생으로 종료가 된 상태
 
 - 스레드를 일시정지 (Waiting, Timed Waiting) 상태로 보냄
     - wait()

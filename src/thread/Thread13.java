@@ -16,7 +16,7 @@ public class Thread13 {
         Thread thread1 = new Thread(()->{
             synchronized (lock) {
                 System.out.println("스레드1: lock 을 쓸 수 있을 때까지 대기합니다.");
-                // Runnable 상태 -> Waiting 상태
+                // Runnable 상태 -> Waiting 상태 -> Terminate
                 try {
                     lock.wait();
                 } catch (InterruptedException e) {
@@ -29,6 +29,7 @@ public class Thread13 {
 
         Thread thread2 = new Thread(()->{
             // 스레드 1이 대기상태로 들어가고 스레드 2가 lock (공유객체)을 사용할 수 있게 됨
+            // Runnable -> Block -> Runnable -> Terminate
             synchronized (lock) {
                 System.out.println("스레드2: lock 객체 다 썼음을 알립니다.");
                 // lock 객체를 기다리고 있는 대기중인 스레드에게 알림
@@ -45,5 +46,6 @@ public class Thread13 {
             throw new RuntimeException(e);
         }
         thread2.start();
+        // 모든 스레드가 Terminate 되면 main 스레드도 종료
     }
 }
