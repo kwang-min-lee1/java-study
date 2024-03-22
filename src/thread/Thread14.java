@@ -136,5 +136,6 @@ class Manager implements Runnable{
                coffeeMachine.fill();
            }
        }
+
 }
 
