@@ -21,7 +21,7 @@ public class Thread6 {
         PrintThread Thread1 = new PrintThread("1");
         PrintThread Thread2 = new PrintThread("2");
 
-        // 우선순위 부여하기
+        // 우선순위 부여하기 ( 범위는 1~10, 기본값은 5(NORM_PRIORITY) )
         // 스레드 스케줄러가 스레드들 사이에서 실행순서를 결정하는데 사용되는 힌트만 제공
         // OS(운영체제)에 있는 수케줄링 정책에 따라, CPU 의 자원을 할당받음.
         // 어느정도 빈도의 영향을 가지게 됨.
