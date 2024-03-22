@@ -11,23 +11,29 @@ public class Thread14 {
     //                 버퍼가 비어있으면 대기
     // 버퍼: 생산자가 생산한 데이터를 임시로 저장하는 공간 (유한한 크기)
     public static void main(String[] args) {
+
+        // CoffeeMachine 객체를 생성
         CoffeeMachine coffeeMachine = new CoffeeMachine();
 
-        // 소비자들의 스레드
+        // 소비자들의 스레드 (소비자 이름을 포함하는 문자열 리스트를 생성)
         List<String> customerList = Arrays.asList("둘리", "철수", "영희", "희동", "길동");
+        // 소비자 리스트를 스트림으로 변환
         customerList.stream()
+                // 각 소비자에 대해 새로운 스레드를 생성하고 시작
                 .forEach(customer -> new Thread(new Customer(customer,coffeeMachine)).start());
 
-        // 생산자의 스레드
+        // 생산자의 스레드 (생산자 스레드를 생성하고 시작)
         new Thread(new Manager(coffeeMachine)).start();
     }
 }
 
+// CoffeeMachine 클래스를 정의
 class CoffeeMachine {
-    final int CUP_MAX = 10;   // 버퍼의 크기(최대치)
-    int cups = CUP_MAX;
+    final int CUP_MAX = 10;   // 버퍼의 크기(최대치), 버퍼의 최대 크기를 상수로 정의
+    int cups = CUP_MAX; // // 버퍼의 현재 컵 개수를 나타내는 변수를 초기화
 
     // 커피 컵을 소비
+    // 소비자가 커피를 가져가는 메서드를 동기화
     synchronized public void takeOut(Customer customer) {
         // 버퍼가 비어있을 경우
         while (cups <= 0) {
@@ -40,29 +46,29 @@ class CoffeeMachine {
             }
         }
 
-        // 간격 1초
+        // 간격 1초 (1초의 간격으로 실행을 지연)
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        // 버퍼를 1개 줄임
+        // 버퍼를 1개 줄임( 커피 컵을 하나 줄임)
         System.out.printf(
                 "[컵: %d] %s : 커피 테이크아웃 해가요. \n",
                 cups, customer.name);
         cups--;
-        notifyAll();
 
-        // 모두에게 알리고 대기 모드로 들어감
+        notifyAll();
+        // 다른 스레드에게 알리고 대기 중인 스레드를 깨웁니다.
+
         try {
             wait();
         } catch (InterruptedException e) {
         }
-
     }
-
     // 커피 컵을 생산
+    // 생산자가 커피를 채우는 메서드를 동기화
     synchronized public void fill() {
         // 커피 컵이 여유가 있으면 대기
         while (cups > 3) {
@@ -94,6 +100,7 @@ class CoffeeMachine {
 }
 
 // 소비자
+// Customer 클래스를 정의
 class Customer implements Runnable {
     String name;
     CoffeeMachine coffeeMachine;
@@ -103,24 +110,29 @@ class Customer implements Runnable {
         this.coffeeMachine = coffeeMachine;
     }
 
+    // run 메서드를 구현
     @Override
     public void run() {
         while (true) {
+            // 커피를 가져가는 작업을 수행
             coffeeMachine.takeOut(this);
         }
     }
 }
 
 // 생산자
+// Manager 클래스를 정의
 class Manager implements Runnable{
     CoffeeMachine coffeeMachine;
 
        public Manager(CoffeeMachine coffeeMachine) {
            this.coffeeMachine = coffeeMachine;
        }
+       // run 메서드를 구현
        @Override
        public void run() {
            while (true) {
+               // 커피를 채우는 작업을 수행
                coffeeMachine.fill();
            }
        }
