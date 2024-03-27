@@ -696,5 +696,11 @@
     - print(), println(), printf() 메서드를 지원하는 보조 스트림
 5. 객체 직렬화 스트림; ObjectInputStream, ObjectOutputStream
     - 객체를 직렬화(객체 -> 바이트 스트림) 혹은 역직렬화(바이트 스트림 -> 객체)
+
+## 직렬화 (Serialization)
+- 객체의 상태를 바이트 스트림으로 변환
+- 네트워크 등을 통하여 다른 시스템에 전달할 때 사용
+- 직렬화 할 객체가 Serializable 인터페이스가 구현되어야 가능.
+- serialVersionUID 필드 : 클래스의 내용이 같다라는 것을 보장.
    
 
