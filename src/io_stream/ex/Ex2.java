@@ -54,25 +54,35 @@ import java.io.*;
 public class Ex2 {
     public static void main(String[] args) throws IOException {
 
-        String src = "src/io_stream/ex/server.log";
-        String src1 = "src/io_stream/ex/errorLogs.txt";
+        // 경로
+        String filePath = "src/io_stream/ex/server.log";
+        String resultPath = "src/io_stream/ex/errorLogs.txt";
 
-        BufferedReader br = new BufferedReader(new FileReader(src));
-        BufferedWriter bw = new BufferedWriter(new BufferedWriter(src1));
+        // 에러 횟수
+        int errorCount = 0;
 
-        while (true) {
-            String line = br.readLine(); // 파일에서 한 줄 씩 읽음
+        // 버퍼 리더(입력 스트림)에서 한 줄씩 읽음 (try-with-resource)
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(resultPath));
+        ) {
 
-            if (line.contains("ERROR")) {
-                bw.write(line);
+            while (true) {
+                String line = br.readLine();
+                if (line == null) break;        // 비어있을 경우 반복 종료
+                // - 에러 로그 분석: 로그 파일을 읽고, "ERROR"라는 단어가 포함된 모든 라인을 찾습니다.
+                if (line.contains("ERROR")) {
+                    // System.out.println(line);
+                    // 결과 저장: 찾은 에러 로그를 "errorLogs.txt" 파일에 저장합니다. 각 - 에러 로그는 파일의 새로운 줄에 기록되어야 합니다.
+                    bw.write(line); // 라인을 출력스트림을 통해 파일에 쓰기
+                    bw.newLine();   // 한 줄 개행문자 추가
+                    errorCount++;   // 에러가 발생할 때마 횟수 추가
+                }
             }
-            System.out.println(line);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        br.close();
-
-
-        // 버퍼에서 읽은 길이만큼, 문자열을 출력
-        System.out.println(new String(buffer, 30, length));
+        // 분석 결과 출력
+        System.out.printf("분석 완료. 총 %d개의 에러 로그를 찾았습니다.\n", errorCount);
 
     }
 }
