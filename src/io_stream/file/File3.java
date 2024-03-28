@@ -1,6 +1,8 @@
 package io_stream.file;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
@@ -16,9 +18,15 @@ public class File3 {
     // Files 클래스: 파일과 디렉토리에 대한 정적 메서드 제공
     // Paths 클래스: 파일 시스템 경로를 인스턴스화환 Path 객체를 생성, 경로 관련 메서드를 제공
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         // 폴더 경로: 기본 상대경로
         Path path = Paths.get("");
+
+        // nio -> io 호환 가능 Path -> File
+        File file = path.toFile();
+        FileInputStream fileInputStream = new FileInputStream(path.toFile());
+        Path newPath = file.toPath();
+
         // 절대경로로 변경
         Path absolutePath = path.toAbsolutePath();
 

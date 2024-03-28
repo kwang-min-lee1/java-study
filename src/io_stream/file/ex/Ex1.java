@@ -45,7 +45,7 @@ public class Ex1 {
         while (true) {
             System.out.println("1: 정보 저장, 2: 정보 조회");
             int choice = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine();  // 개행문자(엔터) 버퍼를 비워줌
 
             // 사용자가 선택한 옵션에 따라 해당하는 기능을 수행
             // 1을 선택하면 사용자 정보를 저장하는 기능을 호출
