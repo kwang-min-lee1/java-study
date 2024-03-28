@@ -818,12 +818,24 @@
         - 자원을 식별하는 데 사용되는 고유의 식별자
         - 특정한 자원의 이름이나 위치를 나타낼 수 있음
         - URL 과 URN 을 포함하는 개념
+
     - URL (Uniform Resource Locator)
         - 인터넷 상에 자원이 위치하는 곳을 나타냄
+
     - URN (Uniform Resource Name)
         - 자원의 위치와 관계없이 자원의 고유한 이름
         - 예시: urn:isbn:012345678
+
     - URI 의 구조
+        - scheme://host/path
         - scheme://host/path?query#fragment
+        - scheme://host:port/path?query#fragment
+        - scheme://user:password@host:port/path?query#fragment
             - scheme: 리소스에 접근하기 위한 특정한 프로토콜, http, https, ftp 등
             - host: 리소스가 호스팅되는 서버의 도메인 이름 또는 IP 주소
+            - port: 리소스에 접근하기 위한 서버의 포트 번호 (http: 80, https: 433  기본포트는 생략)
+            - path: 서버 내에서 리소스 위치를 지정하는 경로
+            - query: 리소스에 전달되는 추가 정보 'key=value' 형태로 포함
+            - fragment: 문서 내의 특정부분을 가르키는 앵커
+            - user:password: 리소스에 접근하기 위한 인증 정보
+        - URL 의 구조는  URI 의 구조를 따른다.
