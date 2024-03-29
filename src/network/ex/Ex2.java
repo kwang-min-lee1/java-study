@@ -32,7 +32,7 @@ public class Ex2 {
         // 바이트 스트림을 문자 스트림으로 변환하는 InputStreamReader 객체 inputStreamReader 를 생성
         InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         // 문자 스트림을 효율적으로 읽기 위한 BufferedReader 객체 bufferedReader 를 생성
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
 
         // 파일에 문자를 기록하는 FileWriter 객체 writer 를 생성하고
         // "src/network/news.html" 경로에 해당하는 파일을 만든다.
@@ -40,16 +40,17 @@ public class Ex2 {
         // 문자 스트림을 효율적으로 쓰기 위한 BufferedWriter 객체 bw를 생성
         BufferedWriter bw = new BufferedWriter(writer);
 
-        while (true){
+
+        while (true){    // if문 없이 한줄로 표현: while ((line = reader.readLine()) != null) {
             // bufferedReader 를 사용하여 한 줄씩 읽어오기
-            String line = bufferedReader.readLine();
+            String line = reader.readLine();
             if (line == null) break;
             System.out.println(line);
 
             bw.write(line);
             bw.newLine();
         }
-        bufferedReader.close();
+        reader.close();
         inputStreamReader.close();
         inputStream.close();
 
