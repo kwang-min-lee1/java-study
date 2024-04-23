@@ -35,7 +35,7 @@ public class BoardEx8 {
                 """;
 
         // SQL 명령문 및 결과 셋 자원 생성 및 정리
-        try (PreparedStatement pstmt = conn.prepareStatement(sql);
+        try (PreparedStatement pstmt = conn.prepareStatement(sql);  // try 의 () 안으로 '자원'을 넣으면 구문 종료시 전체 종료됨 -> close() 생략 가능해짐
              ResultSet rs = pstmt.executeQuery()) {
 
             // 결과 셋에서 행마다 게시글 객체 생성
@@ -56,7 +56,7 @@ public class BoardEx8 {
                         board.getTitle());
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            e.printStackTrace();     // 예외 처리시 예외를 출력하고, exit()로 가서 예외처리 할 것
             exit();
         }
 
