@@ -8,9 +8,9 @@ import java.sql.SQLException;
 public class DatabaseUtil {
 
     // 필드 : 연결 정보 및 연결 객체
-    private static String url = "jdbc:mysql://localhost:3306/jdbc";
-    private static String user = "root";
-    private static String password = "1234";
+    private static final String url = "jdbc:mysql://localhost:3306/jdbc";
+    private static final String user = "root";
+    private static final String password = "1234";
     private static Connection conn;
 
     // 메서드
