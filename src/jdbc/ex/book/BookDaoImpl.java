@@ -11,13 +11,16 @@ import java.util.List;
 
 // DAO 인터페이스 구현 객체
 public class BookDaoImpl implements BookDao{
+    // 필드
     Connection conn;
 
     // DAO 생성과 동시에 접근 객체 생성
+    // 생성자
     public BookDaoImpl(Connection conn) {
         this.conn = DatabaseUtil .getconnection();
     }
 
+    // 메서드 : SQL과 연산하는 접근 메서드
     @Override
     public void insert(BookDto book) {
         String sql ="INSERT INTO books (isbn,title,author,publish_year,genre) VALUES (?,?,?,?,?)";
@@ -46,6 +49,7 @@ public class BookDaoImpl implements BookDao{
             pstmt.setString(1,isbn);
             ResultSet rs = pstmt.executeQuery();
 
+            // 결과가 1개 행일때는 if
             if (rs.next()) {
                 return new BookDto(
                         rs.getString("isbn"),
@@ -74,6 +78,7 @@ public class BookDaoImpl implements BookDao{
             pstmt.setString(2, book.getAuthor());
             pstmt.setInt(3,book.getPublish_year());
             pstmt.setString(4, book.getGenre());
+            pstmt.setString(5, book.getIsbn());
             pstmt.executeUpdate();
             pstmt.close();
 
@@ -106,6 +111,7 @@ public class BookDaoImpl implements BookDao{
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery();
             // 여러개의 SQL 문 결과 셋 반복(커서이동)
+            // 결과가 여러행일때는 while문
             while (rs.next()) {
                 BookDto book = new BookDto(
                         rs.getString("isbn"),
